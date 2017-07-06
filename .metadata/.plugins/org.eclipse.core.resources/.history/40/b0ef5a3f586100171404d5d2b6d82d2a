@@ -1,0 +1,53 @@
+package com.hanbit.oop.board.controller;
+
+import javax.swing.JOptionPane;
+
+import com.hanbit.board.domain.BoardBean;
+import com.hanbit.board.service.BoardService;
+import com.hanbit.board.serviceImpl.BoardServiceImpl;
+import com.hanbit.oop.domain.MemberBean;
+
+public class BoardController {
+		public static void main(String[] args) {
+			BoardService service=new BoardServiceImpl();
+			BoardBean bean=new BoardBean();
+			
+			while(true){
+				switch(JOptionPane.showInputDialog(null,"0.종료 1.게시글등록 2.게시글갯수(count) 3.게시글번호로찾기 4.이름으로찾기5.게시글수정 6.리스트(list) 7.게시글삭제")){
+				case "0":
+					JOptionPane.showMessageDialog(null, "종료합니다");
+					return;
+				case "1":
+					JOptionPane.showInputDialog(null,"이름/제목/내용/날짜");
+					
+					JOptionPane.showMessageDialog(null, "등록완료");
+					break;
+				case "2":
+					
+					JOptionPane.showMessageDialog(null, "게시글수");
+					break;
+				case "3":
+					JOptionPane.showInputDialog(null,"게시글번호입력");
+					JOptionPane.showMessageDialog(null, "전체내용");				
+					break;
+				case "4":
+					JOptionPane.showInputDialog(null,"이름입력");
+					JOptionPane.showMessageDialog(null, "전체내용");
+					break;
+				case "5":
+					JOptionPane.showInputDialog(null,"번호/내용");
+					JOptionPane.showMessageDialog(null, "수정완료");
+					break;
+				case "6":
+					
+					JOptionPane.showMessageDialog(null, "리스트");
+					break;
+				case "7":
+					JOptionPane.showInputDialog(null,"번호/삭제");
+					JOptionPane.showMessageDialog(null, "삭제성공");
+					break;
+				
+				}
+			}
+		}
+}

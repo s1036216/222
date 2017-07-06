@@ -1,0 +1,9 @@
+package com.hanbit.board.service;
+
+import com.hanbit.board.domain.AcountBean;
+
+public class AcountService {
+	public void creatAcount(AcountBean bean);
+	public AcountBean findByname(String name);
+	public 
+}

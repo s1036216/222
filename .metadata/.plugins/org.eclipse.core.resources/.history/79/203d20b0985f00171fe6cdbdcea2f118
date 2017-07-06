@@ -1,0 +1,5 @@
+package com.hanbit.oop.inheritance;
+
+public class CellPhone extends Phone{
+
+}

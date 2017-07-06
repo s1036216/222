@@ -1,0 +1,16 @@
+package com.hanbit.board.service;
+
+import com.hanbit.board.domain.AcountBean;
+
+public interface AcountService {
+
+	public void AcountCreate(AcountBean bean);
+	public AcountBean[] findByName(String name);
+	public AcountBean[] findByNum(String num);
+	public AcountBean[] list();
+	public int Count();
+	public void updatePass(AcountBean bean);
+	public void updateIb(AcountBean bean);
+	public void updatecul(AcountBean bean);
+	public void Delete(String num);
+}

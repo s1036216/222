@@ -1,0 +1,52 @@
+package com.hanbit.board.serviceImpl;
+
+import com.hanbit.board.domain.BoardBean;
+import com.hanbit.board.service.BoardService;
+
+
+public class BoardServiceImpl implements BoardService{
+
+	@Override
+	public void add(BoardBean bean) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public BoardBean[] list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BoardBean findWriter(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BoardBean[] findByseq(int seq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BoardBean count(int seq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateContent() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+}

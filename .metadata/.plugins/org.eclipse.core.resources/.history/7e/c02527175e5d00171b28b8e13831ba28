@@ -1,0 +1,46 @@
+package com.hanbit.controller;
+
+import java.util.Scanner;
+
+import com.hanbit.oop.domain.MemberBean;
+import com.hanbit.oop.sevice.MemberService;
+import javax.swing.*;
+
+public class Membercontrol {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		MemberService memberService = new MemberService();
+		MemberBean member = new MemberBean();
+		while (true) {
+		//	System.out.println("0.end,  1.join  2.login 3.");
+//			String flag=JOptionPane.showInputDialog("0.end,  
+	//		
+			
+			
+			switch (JOptionPane.showInputDialog("0.end,  1.join  2.loginessage")) {
+			case "0":
+				System.out.println("시스템종료");
+				return;
+			case "1":
+				member.setName(JOptionPane.showInputDialog("NAME"));
+				member.setId(JOptionPane.showInputDialog("id"));
+				member.setpass(JOptionPane.showInputDialog("PASS"));
+				member.setSsn(JOptionPane.showInputDialog("SSN"));
+				memberService.join(member);
+
+				String welcome = memberService.join(member);
+				System.out.println(welcome);
+				break;
+			case "2":
+				MemberBean temp=new MemberBean();
+				System.out.println("ID");
+				temp.setId(s.next());
+				System.out.println("비번");
+				temp.setpass(s.next());
+					
+				System.out.println(memberService.Login(member));
+				break;
+			}
+		}
+	}
+}

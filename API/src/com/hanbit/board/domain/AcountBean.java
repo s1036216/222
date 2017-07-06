@@ -1,0 +1,66 @@
+package com.hanbit.board.domain;
+/* KB은행 DB에 저장될 값들은
+다음과 같아요.
+고객의 이름,비번,아이디,입금액,거래날짜,SSN
+통장계좌번호 8자리랜덤번호
+통장이름은 KB국민은행 이라고 고정해주세요 \
+*/
+public class AcountBean {
+
+	private String name, pass, id, date ,ssn;
+	private int acountNo,money;
+	public static final String BANK_NAME="KB국민은행";
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPass() {
+		return pass;
+	}
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public String getSsn() {
+		return ssn;
+	}
+	public void setSsn(String ssn) {
+		this.ssn = ssn;
+	}
+	public int getAcountNo() {
+		return acountNo;
+	}
+	public void setAcountNo(int acountNo) {
+		this.acountNo = acountNo;
+	}
+	public int getMoney() {
+		return money;
+	}
+	public void setMoney(int money) {
+		this.money = money;
+	}
+	@Override
+	public String toString() {
+		return String.format("계좌정보[이름: %s,번호:%d,잔액:%d,날짜:%s]", name,acountNo,money,date);
+		
+		
+		//return "AcountBean [name=" + name + ", pass=" + pass + ", id=" + id + ", date=" + date + ", ssn=" + ssn
+			//	+ ", acountNo=" + acountNo + ", money=" + money + "]";
+	}
+	
+
+
+}

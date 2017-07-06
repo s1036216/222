@@ -1,0 +1,66 @@
+package com.hanbit.board.serviceImpl;
+
+import com.hanbit.board.domain.BoardBean;
+import com.hanbit.board.service.BoardService;
+
+
+
+public class BoardServiceImpl implements BoardService{
+	int count;
+	BoardBean[] list;
+	
+	public BoardServiceImpl() {
+		count = 0;
+		BoardBean bean = new BoardBean();
+		list = new BoardBean[count]; // 회원수 받은만큼 배열수 방만듬
+	}
+	@Override
+	public void add(BoardBean bean) {
+		System.out.println("count" + count);
+
+		if (count != list.length) {
+			BoardBean[] temp = new BoardBean[count + 1]; //공간을 늘려주는거
+			System.arraycopy(list, 0, temp, 0, count ); 
+			list = temp;  //템프에 담아라
+		}
+		list[count++] = bean;
+		
+	}
+
+	@Override
+	public BoardBean[] list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BoardBean findWriter(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BoardBean[] findByseq(int seq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return count;
+	}
+
+	@Override
+	public void update(BoardBean bean) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int seq) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.hanbit.oop.service;
+
+public interface ex {
+
+}

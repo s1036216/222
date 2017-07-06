@@ -1,0 +1,5 @@
+package com.hanbit.oop.board.controller;
+
+public class BoardController {
+
+}

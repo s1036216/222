@@ -1,0 +1,45 @@
+package com.hanbit.board.domain;
+
+public class AcountBean {
+
+	private String name, pass, id, date;
+	private int ib,ssn;
+	
+	public void setName(String name){
+		this.name=name;
+	}
+	public String getName(){
+		return name;
+	}
+	public void setPass(String pass){
+		this.pass=pass;
+	}
+	public String getPass(){
+		return pass;
+	}
+	public void setId (String id){
+		this.id=id;
+	}
+	public String getId (){
+	    return id;
+	}
+	public void setDate(String date){
+		this.date=date;
+	}
+	public String getDate(){
+		return date;
+	}
+	
+	public void setIb(int ib){
+		this.ib=ib;
+	}
+	public int getIb(){
+		return ib;
+	}
+	public void setSsn(int ssn){
+		this.ssn=ssn;
+	}
+	public int getSsn(){
+		return ssn;
+	}
+}

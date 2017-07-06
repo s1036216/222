@@ -1,0 +1,58 @@
+package com.hanbit.controller;
+
+import javax.swing.JOptionPane;
+
+import com.hanbit.oop.domain.MemberBean;
+import com.hanbit.oop.service.AdminService;
+import com.hanbit.oop.serviceImpl.AdminServiceImpl;
+
+public class AdminController {
+	public static void main(String[] args) {
+		String sCount=(JOptionPane.showInputDialog("관리자님 총회원수를 입력해주세요")) ;
+		int count=Integer.parseInt(sCount);
+		AdminService service=new AdminServiceImpl(count);
+		MemberBean bean=null;
+		String sList = null;
+	
+		while (true ) {
+			switch (JOptionPane.showInputDialog("0.종료 1.회원추가2.회원수 3.회원목록4.findBYId")) {
+			case "0":
+				return;
+			case "1":
+				bean=new MemberBean();
+				bean.setName(JOptionPane.showInputDialog("이름"));
+				bean.setId(JOptionPane.showInputDialog("아이디"));
+				bean.setpass(JOptionPane.showInputDialog("비번"));
+				bean.setSsn(JOptionPane.showInputDialog("주민번호"));
+				service.addMember(bean);
+				JOptionPane.showMessageDialog(null, "회원 가입 성공");
+							
+				break;
+				
+			
+			case "2":
+				JOptionPane.showMessageDialog(null,service.countMembers());
+				
+				
+				break;
+			case "3":
+				MemberBean[] list =service.getMembers();
+				JOptionPane.showMessageDialog(null, "1번쨰"+list[0]);
+				JOptionPane.showMessageDialog(null, "2번쨰"+list[1]);
+				JOptionPane.showMessageDialog(null, "3번쨰"+list[2]);
+				for(int i=0;i<list.length;i++){
+					sList+=list[i].toString()+"\n";
+				}
+										
+				JOptionPane.showMessageDialog(null, "리스트"+sList);	
+				break;
+			case "4":	
+				String serchId=JOptionPane.showInputDialog(null, "조회하려는 아이디값을 입력");
+			//	bean=new MemberBean();
+				bean=service.findById(serchId);
+				JOptionPane.showMessageDialog(null,service.findById(serchId) );
+				break;
+			}
+		}
+	}
+}

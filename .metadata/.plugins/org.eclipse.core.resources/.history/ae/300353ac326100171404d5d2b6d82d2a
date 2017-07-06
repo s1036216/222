@@ -1,0 +1,8 @@
+package com.hanbit.board.domain;
+
+public class BoardBean {
+	private int seq;
+	private String writer,title,content,regCate;
+
+	
+}

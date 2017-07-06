@@ -1,0 +1,38 @@
+package com.hanbit.board.domain;
+
+public class BoardBean {
+	private int seq;
+	private String writer,title,content,regCate;
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getRegCate() {
+		return regCate;
+	}
+	public void setRegCate(String regCate) {
+//		this.regCate = regCate;
+	}
+
+	
+}

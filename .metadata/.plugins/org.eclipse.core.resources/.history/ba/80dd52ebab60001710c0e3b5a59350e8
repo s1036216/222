@@ -1,0 +1,16 @@
+package com.hanbit.oop.service;
+
+
+import com.hanbit.oop.domain.MemberBean;
+import com.hanbit.oop.service.AdminService;
+
+public interface AdminService {
+
+	public void addMember(MemberBean bean);//set
+	public MemberBean[] getMembers();        //get
+	public int countMembers();               //get
+	public MemberBean findById(String id);
+	public MemberBean[] findByName(String name);
+	public void updatePass(MemberBean bean);
+	
+}

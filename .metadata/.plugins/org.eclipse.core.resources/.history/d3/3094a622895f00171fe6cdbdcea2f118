@@ -1,0 +1,44 @@
+package com.hanbit.oop.inheritance;
+
+public class Phone {
+	private String name, phoneNo, brand, kind,call;
+	
+	public void setName(String name){
+		this.name=name;
+			}
+	public String getName(){
+		return name;
+	}
+	public void setPhoneNo(String phoneNo){
+		this.phoneNo=phoneNo;
+			}
+	public String getPhoneNo(){
+		return phoneNo;
+	}
+	
+	public void setBrand(String brand){
+		this.brand=brand;
+	}
+	public String getBrand(){
+		return brand;
+	}
+	
+	public void setKind(String kind){
+		this.kind=kind;
+			}
+	public String getKind(){
+		return kind;
+	}
+	public void setCall(String call){
+		this.call=call;
+			}
+	public String getCall(){
+		return call;
+	}
+	public String toString(){
+		return  name+"에개"+phoneNo+"번호로"+brand+"를사용해서"+call+"내용을통화했다";
+			
+	}
+	
+	
+}

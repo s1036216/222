@@ -1,0 +1,29 @@
+package com.hanbit.oop.inheritance;
+
+public class Iphone extends CellPhone{
+	protected String date;
+	// KIND 는 스마트폰이라고 오버라이딩..
+	public final static String BRAND="아이폰";
+	public final static String KIND="스마트폰";
+	public void setDate(String date){
+		this.date=date;
+	}
+	public String getDate(){
+			
+		return date;
+	}
+	
+	@Override
+	public String toString(){
+		setPortable(true);
+		//스마트폰이기때문에 이동가능한 상태로 홍길동에게 010번호로 
+	//아이폰을 사용해서 문자를 전송했다	
+		return String.format(" %s이기때문에 %s해서 %s에게 %s 번호로 %s 을 사용해서 %s 전송했다 "
+				,KIND,move,name,phoneNo,BRAND,date);
+		
+		 
+	}
+}
+
+
+// iphone.setPortable(true);

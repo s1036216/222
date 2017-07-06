@@ -1,0 +1,18 @@
+package com.hanbit.board.service;
+
+import com.hanbit.board.domain.BoardBean;
+
+public interface BoardService {
+	//list   findByseq  findByWriter count updateContent delete
+	public void addMember(BoardBean bean);
+	public void writeBoard(BoardBean bean);  //세터
+	public void updateContent();
+	public void delete();
+	public  String findBySeq();   //하나만리턴 유니크한거
+	public BoardBean[] list();
+	public String count();
+	public  BoardBean[] findByWriter();
+	
+
+	
+}

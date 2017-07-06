@@ -1,0 +1,138 @@
+package com.hanbit.oop.serviceImpl;
+
+
+import com.hanbit.oop.domain.MemberBean;
+import com.hanbit.oop.service.AdminService;
+
+
+
+
+public class AdminServiceImpl implements AdminService {
+
+	int i = 0;
+	int count;
+	MemberBean member = null;
+	MemberBean[] list;
+
+	// 생성자처리가 이문제핵심
+	public AdminServiceImpl(int limit) {
+		count = 0;
+		member = new MemberBean();
+		list = new MemberBean[limit]; // 회원수 받은만큼 배열수 방만듬
+
+	}
+
+	@Override
+	public void addMember(MemberBean bean) {
+		list[count] = bean;// i번째 방에 값읋넣은후에
+		for (int i = 0; i < (count + 1); i++) {
+			// System.out.println(list[i].toString());
+		}
+		count++; // 생성자에서 방을 이미 만들어주고 배열로 가지고 와서 , i번째 가지고 와서
+	}
+
+	@Override
+	public MemberBean[] getMembers() {
+		return list;
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public int countMembers() {
+		// member.toString();
+		return count;
+	}
+
+	@Override
+	public MemberBean findById(String id) {
+		// member = new MemberBean();
+		for (i = 0; i < list.length; i++) {
+			if (id.equals(list[i].getId())) {
+				member = list[i];
+				break;
+				// System.out.println(list[i].toString());
+			}
+		}
+		// 조회하1려는 아이디값을 입력
+		// TODO Auto-generated method stub
+		return member;
+	}
+
+	 @Override
+     public MemberBean[] findByName(String name) {
+          int a = 0;
+           for(int i=0; i<list.length; i++){
+              if(name.equals(list[i].getName())){
+                 a++;
+              }
+           }
+           MemberBean[] nameList = new MemberBean[a];
+           int j=0;
+           for(int i=0; i<list.length; i++){
+             
+              if(name.equals(list[i].getName())){
+                 nameList[j] = list[i];
+                 j++;
+                 if(a==j){
+                    break;   
+                    }
+              }
+             
+           }
+           return nameList;
+     }
+		
+	/*	int a = 0;
+	      for(int i=0; i<list.length; i++){
+	         if(name.equals(list[i].getName())){
+	            a++;
+	         }
+	      }
+	      MemberBean[] nameList = new MemberBean[a];
+	      int j=0;
+	      for(int i=0; i<list.length; i++){
+	         if(name.equals(list[i].getName())){
+	            nameList[j] = list[i];
+	            j++;
+	         }
+	      }
+	      return nameList; */
+	
+	
+	 
+
+	@Override
+	public void updatePass(MemberBean bean) {
+		member=findById(bean.getId());
+		member.setpass(bean.getpass());
+			
+		/*
+		findById(bean.getId());
+		if(bean.getId().equals(member.getId())){
+			member.setpass(bean.getpass());
+		}
+		
+		*/		
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delId(String id) {
+		findById(id);
+		for(i=0;i<list.length;i++){
+			if(id.equals(list[i].getId())){
+				list[i]=null;
+						
+				
+			}
+			break;			
+		}
+		
+	
+		// TODO Auto-generated method stub
+		
+	}
+}
+
+

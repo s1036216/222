@@ -1,0 +1,101 @@
+package com.hanbit.oop.serviceImpl;
+
+import com.hanbit.oop.domain.MemberBean;
+import com.hanbit.oop.service.AdminService;
+
+public class AdminServiceImpl implements AdminService {
+
+	int i = 0;
+	int count;
+	MemberBean member = null;
+	MemberBean[] list;
+
+	// 생성자처리가 이문제핵심
+	public AdminServiceImpl() {
+		count = 0;
+		member = new MemberBean();
+		list = new MemberBean[count]; // 회원수 받은만큼 배열수 방만듬
+
+	}
+
+	@Override
+	public void addMember(MemberBean bean) {
+		list[count] = bean;// i번째 방에 값읋넣은후에
+		for (int i = 0; i < (count + 1); i++) {
+			// System.out.println(list[i].toString());
+		}
+		count++; // 생성자에서 방을 이미 만들어주고 배열로 가지고 와서 , i번째 가지고 와서
+	}
+
+	@Override
+	public MemberBean[] getMembers() {
+		System.out.println("count" + count);
+
+		if (count != list.length) {
+			MemberBean[] temp = new MemberBean[count - 1];
+			System.arraycopy(list, 0, temp, 0, count - 1);
+			list = temp;
+		}
+	return list;
+	}
+
+	@Override
+	public int countMembers() {
+			return count;
+	}
+
+	@Override
+	public MemberBean findById(String id) {
+		for (i = 0; i < list.length; i++) {
+			if (id.equals(list[i].getId())) {
+				member = list[i];
+				break;
+							}
+		}
+		return member;
+	}
+
+	@Override
+	public MemberBean[] findByName(String name) {
+		int a = 0;
+		for (int i = 0; i < list.length; i++) {
+			if (name.equals(list[i].getName())) {
+				a++;
+			}
+		}
+		MemberBean[] nameList = new MemberBean[a];
+		int j = 0;
+		for (int i = 0; i < list.length; i++) {
+
+			if (name.equals(list[i].getName())) {
+				nameList[j] = list[i];
+				j++;
+				if (a == j) {
+					break;
+				}
+			}
+
+		}
+		return nameList;
+	}
+
+	@Override
+	public void updatePass(MemberBean bean) {
+		member = findById(bean.getId());
+		member.setpass(bean.getpass());
+	}
+
+	@Override
+	public void delId(String id) {
+		for (i = 0; i < count; i++) {
+			if (id.equals(list[i].getId())) {
+				list[i] = list[count - 1];
+				list[count - 1] = null;
+				count--;
+				break;
+			}
+
+		}
+
+	}
+}

@@ -1,0 +1,94 @@
+package com.hanbit.board.controller;
+
+import java.util.Vector;
+
+import javax.swing.JOptionPane;
+
+import com.hanbit.board.domain.AcountBean;
+import com.hanbit.board.service.AcountService;
+import com.hanbit.board.serviceImpl.AcountServiceImp;
+import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
+
+public class AcountController {
+ public static void main(String[] args) {
+	AcountBean bean= null;
+	AcountService service=new AcountServiceImp();
+	String acountNo ="" ;
+	int num;
+	
+	Vector<AcountBean>vec;
+	while(true){
+		switch(JOptionPane.showInputDialog("0.종료 1.계좌계설 2.계좌 전체목록 3.이름으로 검색(동명이인허용) 4.계좌번호로 조회 5. 전체계좌수 6.비번변경 7.예금입금 8. 출금 9.계좌혜지")){
+		case "0": 
+			JOptionPane.showMessageDialog(null, "종료합니다");
+			return;
+		case "1":
+			bean=new AcountBean();
+			String[] info=JOptionPane.showInputDialog("이름/아이디/패스워드/주민번호/최초입금액").split("/");
+			bean.setName(info[0]);
+			bean.setId(info[1]);
+			bean.setPass(info[2]);
+			bean.setSsn(info[3]);
+			bean.setMoney(Integer.parseInt(info[4]));
+			service.AcountCreate(bean);
+			JOptionPane.showMessageDialog(null, "계좌계설완성");
+			break;
+		case "2": 
+			String sList="";
+			Vector<AcountBean> list=service.list();
+			System.out.println("=******** list controller: "+list.toString());
+			System.out.println("=******** list controller: "+service.Count());
+//			list[0]    vec.get(0)
+			for(int i=0;i<service.Count();i++){
+				sList=list.get(i).toString()+"\n";
+				System.out.println(sList);
+			}
+			System.out.println(sList);
+			JOptionPane.showMessageDialog(null, "계좌전체결과"+sList);
+			
+			break;
+		case "3": 
+			JOptionPane.showInputDialog("이름");
+			String name="";
+			Vector<AcountBean>vec2=service.findByName(name);
+			JOptionPane.showMessageDialog(null, "계좌전체결과"+vec2);
+			break;
+		case "4": 
+			service.findByNum(Integer.parseInt(JOptionPane.showInputDialog("계좌번호")));
+			JOptionPane.showMessageDialog(null, "계좌전체결과");
+			break;
+		case "5": 
+			int count=service.Count();
+			JOptionPane.showMessageDialog(null, "전체 계좌 숫자");
+			break;
+		case "6": 
+			String [] foo=JOptionPane.showInputDialog("변경할 계좌/바꿀 비밀번호").split("/");
+			bean.setAcountNo(Integer.parseInt(foo[0]));
+			bean.setPass(foo[1]);
+			service.AcountCreate(bean);
+			JOptionPane.showMessageDialog(null, "변경완료");
+			break;
+		case "7": 
+			String [] foo2=JOptionPane.showInputDialog("계좌번호/입금금액").split("/");
+			bean.setAcountNo(Integer.parseInt(foo2[0]));
+			bean.setPass(foo2[1]);
+			
+			service.updateIb(bean);
+			
+			JOptionPane.showMessageDialog(null, "입금성공");
+			break;
+		case "8": 
+			String [] foo3=JOptionPane.showInputDialog("계좌번호/출금금액").split("/");
+			bean.setAcountNo(Integer.parseInt(foo3[0]));
+			bean.setPass(foo3[1]);
+			JOptionPane.showMessageDialog(null, "출금완료");
+			break;
+		case "9": 
+				
+			service.Delete(JOptionPane.showInputDialog("삭제될계좌번호"));
+			JOptionPane.showMessageDialog(null, "삭제완료");
+			break;
+		}
+	}
+}
+}

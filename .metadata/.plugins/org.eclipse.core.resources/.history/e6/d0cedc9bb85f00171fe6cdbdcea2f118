@@ -1,0 +1,7 @@
+package com.hanbit.oop.sevice;
+
+import com.hanbit.oop.service.MemberService;
+
+public class MemberServiceImpl implements MemberService {
+
+}

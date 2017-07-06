@@ -1,0 +1,5 @@
+package com.hanbit.oop.domain;
+
+public class Gradebean {
+
+}

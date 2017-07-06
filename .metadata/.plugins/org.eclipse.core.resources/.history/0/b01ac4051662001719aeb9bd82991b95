@@ -1,0 +1,62 @@
+package com.hanbit.board.serviceImpl;
+
+import com.hanbit.board.domain.AcountBean;
+import com.hanbit.board.service.AcountService;
+
+public class AcountServiceImp implements AcountService  {
+
+	@Override
+	public void AcountCreate(AcountBean bean) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public AcountBean[] findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AcountBean[] findByNum(String num) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AcountBean[] list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int Count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void updatePass(AcountBean bean) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateIb(AcountBean bean) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updatecul(AcountBean bean) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Delete(String num) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

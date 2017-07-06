@@ -1,0 +1,10 @@
+package com.hanbit.board.serviceImpl;
+
+import com.hanbit.board.domain.BoardBean;
+import com.hanbit.board.service.BoardService;
+
+public class BoardServiceImpl implements BoardService{
+
+	
+
+}
