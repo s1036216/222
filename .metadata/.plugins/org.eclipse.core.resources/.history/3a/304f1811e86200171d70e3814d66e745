@@ -1,0 +1,68 @@
+package com.hanbit.Member.Controller;
+
+import javax.swing.JOptionPane;
+
+import com.hanbit.Member.Domain.MemberBean;
+import com.hanbit.Member.Service.MemberService;
+import com.hanbit.Member.ServiceImpl.MemberServiceImpl;
+
+public class Membercontrol {
+public static void main(String[] args) {
+	MemberService service=new MemberServiceImpl();
+	MemberBean bean=null;
+	while(true){
+		switch(JOptionPane.showInputDialog("0.stop 1.add 2.list 3.findbyNAME 4.findbyID 5.count 6.update 7.delete")){
+		case"0":
+			return;
+		case"1":
+			String[] arr=JOptionPane.showInputDialog("ID/NAME/PASSWOD/SSN/REGDATE").split("/");
+			bean=new MemberBean();
+			bean.setId(arr[0]);
+			bean.setName(arr[1]);
+			bean.setPassword(arr[2]);
+			bean.setSsn(arr[3]);
+			bean.setRegdate(arr[4]);
+			service.add(bean);
+			JOptionPane.showMessageDialog(null,"가입완료");
+			break;
+		case"2":
+			bean=new MemberBean();
+			MemberBean[] arr2=service.list();
+			String result="";
+			for(int i=0;i<arr2.length;i++){
+				result+=arr2[i].toString()+"\n";
+			}	
+			JOptionPane.showMessageDialog(null,result);
+			break;
+		case"3":
+			MemberBean[] arr3=service.findByName(JOptionPane.showInputDialog("NAME"));
+			String result1="";
+			for(int i=0;i<arr3.length;i++){
+			
+				result1+=arr3[i].toString()+"\n";
+			}	
+			JOptionPane.showMessageDialog(null,result1);
+			break;
+		case"4":
+			JOptionPane.showMessageDialog(null,service.findById(JOptionPane.showInputDialog("ID")).toString());
+			break;
+		case"5":
+			JOptionPane.showMessageDialog(null,"count :"+service.count());
+			break;
+		case"6":
+			bean=new MemberBean();
+			String[] arr4=JOptionPane.showInputDialog("ID/PASS").split("/");
+			bean.setId(arr4[0]);
+			bean.setPassword(arr4[1]);
+			service.update(bean);
+			JOptionPane.showMessageDialog(null,"update");
+			break;
+		case"7":
+			service.delete(JOptionPane.showInputDialog("삭제할ID"));
+			JOptionPane.showMessageDialog(null,"삭제완료");
+			break;
+		
+		}
+	}
+}
+}

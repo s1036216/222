@@ -1,0 +1,50 @@
+package com.hanbit.Member.ServiceImpl;
+
+import com.hanbit.Member.Domain.MemberBean;
+import com.hanbit.Member.Service.MemberService;
+
+public class MemberServiceImpl implements MemberService{
+
+	@Override
+	public void add(MemberBean bean) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public MemberBean[] list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public MemberBean[] findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public MemberBean findById(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void update(MemberBean bean) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.hanbit.Member.Domain;
+
+public class MemberBean {
+
+}

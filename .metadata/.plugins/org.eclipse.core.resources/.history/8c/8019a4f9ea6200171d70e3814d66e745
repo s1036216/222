@@ -1,0 +1,13 @@
+package com.hanbit.member.service;
+
+import Domain.MemberBean;
+
+public interface MemberService {
+   public void addMember(MemberBean bean);
+   public MemberBean[] list();
+   public MemberBean[] findByName(String name);
+   public MemberBean findById(String id);
+   public int count();
+   public void update(MemberBean bean);
+   public void delete(String id);
+}

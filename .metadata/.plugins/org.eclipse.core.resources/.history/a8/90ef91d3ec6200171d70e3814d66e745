@@ -1,0 +1,82 @@
+package service;
+
+import com.hanbit.member.service.MemberService;
+
+import Domain.MemberBean;
+
+public class MemberServiceImpl implements MemberService{
+	MemberBean[] list;//1순위 큰놈\
+    int count;	 //4번째 (인스턴스변수)
+    MemberBean member;
+   public MemberServiceImpl(){	 //2번 생성자 만들고
+	list=new MemberBean[count];	 //3리스트를 초기화
+	count=0;//초기화
+	member= new MemberBean();
+   }
+	@Override
+	public void  add(MemberBean bean) {
+		for(int i=0;i<list.length;i++){
+		list[count]=bean;// 5번째 배열을 바꾸는거[i]
+		}
+		count++;
+	}
+	@Override
+	public MemberBean[] list() {
+   
+// TODO Auto-generated method stub
+		return list;
+	}
+
+	@Override
+	public MemberBean[] findByName(String name) {
+		
+		int a=0;
+		for (int i=0;i<list.length;i++){
+			if(name.equals(list[i].getName())){
+				a++;
+			}
+		}
+		int j=0;
+		MemberBean[] temp=new MemberBean[a];
+		for (int i=0;i<list.length;i++){
+			if(name.equals(list[i].getName())){
+				temp[j]=list[i];
+				j++;
+			}
+			 if(a==j){
+	            	break;
+	            }
+		}
+		return temp;
+	}
+
+	@Override
+	public MemberBean findById(String id) {
+		MemberBean m=new MemberBean();
+		// TODO Auto-generated method stub
+		return m;
+	}
+
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return count;
+	}
+
+	@Override
+	public void update(MemberBean bean) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(String id) {
+		
+		count--;
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}

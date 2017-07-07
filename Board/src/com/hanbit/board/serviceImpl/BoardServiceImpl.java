@@ -13,8 +13,9 @@ public class BoardServiceImpl implements BoardService {
 		board = new BoardBean();
 		list = new BoardBean[count];
 	}
+
 	@Override
-	public void BoardServiceImpl(BoardBean bean) {
+	public void writeBoard(BoardBean bean) {
 		int seqCount = count + 1;
 		bean.setSeq(seqCount);
 		if (count == list.length) {
@@ -28,45 +29,72 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardBean[] list() {
-		// TODO Auto-generated method stub
-		return list;
-	}
-
-	@Override
-	public BoardBean findWriter(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public BoardBean[] findByseq(int seq) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int count() {
-		
+	public int countArticles() {
 		return count;
 	}
 
 	@Override
-	public void update(BoardBean bean) {
-		// TODO Auto-generated method stub
-
+	public BoardBean[] list() {
+		System.out.println("list" + list.toString());
+		return list;
 	}
 
 	@Override
-	public void delete(int seq) {
-		// TODO Auto-generated method stub
-
+	public BoardBean findBySeq(int seq) {
+		board = new BoardBean();
+		for (int i = 0; i < list.length; i++) {
+			if (seq == list[i].getSeq()) {
+				board = list[i];
+				break;
+			}
+		}
+		System.out.println("result: " + board.toString());
+		return board;
 	}
 
 	@Override
-	public void add(BoardBean bean) {
-		// TODO Auto-generated method stub
-		
+	public BoardBean[] findByWriter(String writer) {
+		int a = 0;
+		for (int i = 0; i < list.length; i++) {
+			if (writer.equals(list[i].getWriter())) {
+				a++;
+			}
+		}
+		BoardBean[] resultList = new BoardBean[a];
+		int j = 0;
+		for (int i = 0; i < list.length; i++) {
+			if (writer.equals(list[i].getWriter())) {
+				resultList[j] = list[i];
+				j++;
+			}
+
+			if (a == j) {
+				break;
+			}
+		}
+		System.out.println("findByName: " + resultList.toString());
+		return resultList;
+	}
+
+	@Override
+	public void updateBoard(BoardBean bean) {
+		board = findBySeq(bean.getSeq());
+		board.setTitle(bean.getTitle());
+		board.setContent(bean.getContent());
+		board.setRegDate(bean.getRegDate());
+		System.out.println("수정된 info: " + board.toString());
+	}
+
+	@Override
+	public void deleteBoard(int seq) {
+		for (int i = 0; i < count; i++) {
+			if (seq == list[i].getSeq()) {
+				list[i] = list[count-1];
+				break;
+			}
+		}
+		list[count-1]=null;
+		count--;
 	}
 
 }

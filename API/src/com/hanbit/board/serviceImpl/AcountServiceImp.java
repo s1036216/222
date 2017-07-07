@@ -12,6 +12,7 @@ public class AcountServiceImp implements AcountService  {
 	public AcountServiceImp(){ 
 		vec=new Vector<>(10,10);
 		account=new AcountBean();
+		
 	}
 	@Override
 	public void AcountCreate(AcountBean bean) {
@@ -41,14 +42,14 @@ public class AcountServiceImp implements AcountService  {
 	@Override
 	public Vector<AcountBean> findByName(String name) {
 		// 이름으로 검색(동명이인허용)
-		name="";
-/*		Vector<AcountBean> temp=new Vector<AcountBean>(10,10);
-		for(int i=0;i<123123123;i++){
-			if (get(i)==arr[i]){
+		
+		Vector<AcountBean> temp=new Vector<AcountBean>(10,10);
+		for(int i=0;i<vec.capacity();i++){
+			if (name.equals(temp.get(i).getName())){
 				
 			}
-		}*/
-		return null;
+		}
+		return temp;
 	}
 
 	@Override

@@ -1,0 +1,5 @@
+package com.hanbit.Member.ServiceImpl;
+
+public class MemberServiceImpl {
+
+}
